@@ -67,7 +67,7 @@ export default {
       return this.defaultExercises.map((exercise, index) => {
         const finalExercise = exercise;
         
-        if(this.customExercises[index+1]) finalExercise.exercise = this.customExercises[index+1];
+        if(this.customExercises[index+1]) finalExercise.exercise = this.customExercises[index+1].charAt(0).toUpperCase() + this.customExercises[index+1].slice(1);
         return finalExercise
       })
     }
