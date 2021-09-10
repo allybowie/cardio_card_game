@@ -67,12 +67,24 @@ export default {
       return this.defaultExercises.map((exercise, index) => {
         const finalExercise = exercise;
         
-        if(this.customExercises[index+1]) finalExercise.exercise = this.customExercises[index+1].charAt(0).toUpperCase() + this.customExercises[index+1].slice(1);
+        if(this.customExercises[index+1]) finalExercise.exercise = this.formatExerciseName(this.customExercises[index+1]);
         return finalExercise
       })
     }
   },
   methods: {
+    formatExerciseName(string) {
+      const words = string.split(" ");
+      const newWords = this.capitalizeWords(words).join(" ");
+
+      const hyphenSplit = newWords.split("-");
+      return this.capitalizeWords(hyphenSplit).join("-");
+    },
+    capitalizeWords(words) {
+      return words.map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1)
+      })
+    },
     returnToWorkout() {
       this.workoutInProgress = false;
     },

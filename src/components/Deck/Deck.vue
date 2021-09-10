@@ -50,7 +50,7 @@ export default {
                 let exerciseValues = cardValues.cardValues.map(card => {
                     const cardInfo = {
                         value: card.value,
-                        exercise: exercise.exercise
+                        exercise: card.value > 1 ? exercise.exercise + 's' : exercise.exercise
                     }
 
                     if(card.face) cardInfo.face = card.face
